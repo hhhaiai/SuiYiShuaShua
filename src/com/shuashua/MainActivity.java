@@ -3,6 +3,10 @@ package com.shuashua;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.utils.AppUtils;
+import com.utils.SafeiShell;
+import com.utils.ShellHelper;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +16,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import c.app.AppUtils;
-import c.shell.SafeiShell;
-import c.shell.ShellHelper;
 
 public class MainActivity extends Activity {
     public static final String T = "sanbo";
