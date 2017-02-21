@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.shuashua"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+		        为了消去加上android:priority="1000"后出现的警告信息
+		        可以设置android:exported属性
+		        指示该服务是否能够被其他应用程序组件调用或跟它交互
+        -->
+        <service
+            android:name=".WindowService"
+            android:exported="false"
+            android:process=":float" >
+
+            <!--
+				为防止Service被系统回收
+				可以通过提高优先级解决
+				1000是最高优先级
+				数字越小，优先级越低 
+            -->
+            <intent-filter android:priority="2147483647" >
+            </intent-filter>
+        </service>
+    </application>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+
+</manifest>
